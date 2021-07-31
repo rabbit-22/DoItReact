@@ -1,4 +1,4 @@
-// ES6dml 비동기 함수 처리
+// ES6의 비동기 함수 처리
 
 const work1 = () => new Promise(resolve =>{
     setTimeout(() => resolve('작업 1 완료!'), 100);
