@@ -5,7 +5,7 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import reducers from './reducers';
 
 export default initStates => createStore(
-    combineRedcuers(reducers),
+    combineReducers(reducers),
     initStates,
     composeWithDevTools(), // 리덕스 크롬확장도구
 );
