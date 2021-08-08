@@ -5,8 +5,10 @@ import AppLayout from './components/AppLayout';
 import CoinOverview from './components/main/CoinOverview';
 import TransactionList from './components/main/TransactionList';
 import configureStore from './store/configureStore';
+
 class CoinApp extends PureComponent {
   store = configureStore();
+
   render() {
     return (
       <Provider store={this.store}>

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
+import Api from '../../Api';
 import Heading from '../../../doit-ui/Heading';
 import Card from '../../../doit-ui/Card';
-import Api from '../../Api';
 
 import TransactionSearchFilter from './TransactionSearchFilter';
 import TransactionTable from './TransactionTable';

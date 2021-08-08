@@ -1,5 +1,5 @@
 // 리듀서 구성 (거래 목록 정보를 그래프DB로 저장)
-import { SET_TRANSACTION_LIST } from '../actions/transactionActions';
+import {SET_TRANSACTION_LIST} from '../actions/transactionActions';
 const initState = {
   ids: [],
   entities: {},
