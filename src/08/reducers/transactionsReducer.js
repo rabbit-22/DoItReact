@@ -12,9 +12,9 @@ export default (state = initState, action) => {
       const ids = payload.map(entity => entity['id']);
       const entities = payload.reduce((finalEntities, entity) => ({
         ...finalEntities,
-        [entity['id']]: entity,
+        [entity['id']]: entity
       }), {});
-      return { ...state, ids, entities };
+      return { ...state, ids, entities, };
       }
       default:
         return state;  }
