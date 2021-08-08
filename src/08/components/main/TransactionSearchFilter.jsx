@@ -37,16 +37,16 @@ class TransactionSearchFilter extends PureComponent {
                 <Option label="두잇코인(DOIT)" value="DOIT" />
               </Select>
               <Input
-                name="currentPrice_gte"
+                name="minAmount"
                 label="최소 거래가"
                 onChange={onChange}
-                value={values['currentPrice_gte']}
+                value={values['minAmount']}
               />
               <Input
-                name="currentPrice_lte"
+                name="maxAmount"
                 label="최대 거래가"
                 onChange={onChange}
-                value={values['currentPrice_lte']}
+                value={values['maxAmount']}
               />
               <Button type="submit" primary>
                 검색

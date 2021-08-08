@@ -1,9 +1,10 @@
-// 리듀서 구성 (거래 목록 정보를 그래프DB로 저장)
-import {SET_TRANSACTION_LIST} from '../actions/transactionActions';
+import { SET_TRANSACTION_LIST } from '../actions/transactionActions';
+
 const initState = {
   ids: [],
   entities: {},
 };
+
 export default (state = initState, action) => {
   const { type, payload } = action;
 
@@ -12,10 +13,11 @@ export default (state = initState, action) => {
       const ids = payload.map(entity => entity['id']);
       const entities = payload.reduce((finalEntities, entity) => ({
         ...finalEntities,
-        [entity['id']]: entity
+        [entity['id']]: entity,
       }), {});
-      return { ...state, ids, entities, };
-      }
-      default:
-        return state;  }
+      return { ...state, ids, entities };
+    }
+    default:
+      return state;
+  }
 };
