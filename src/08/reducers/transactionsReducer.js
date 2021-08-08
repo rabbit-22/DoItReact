@@ -14,7 +14,7 @@ export default (state = initState, action) => {
       const entities = payload.reduce((finalEntities, entity) => ({
         ...finalEntities,
         [entity['id']]: entity,
-      }), {});
+      }), {},);
       return { ...state, ids, entities };
     }
     default:
