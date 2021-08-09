@@ -5,6 +5,7 @@ import AppLayout from './components/AppLayout';
 import CoinOverview from './components/main/CoinOverview';
 
 import TransactionListContainer from './containers/main/TransactionListContainer';
+import ModalProvider from './ModalProvider';
 import configureStore from './store/configureStore';
 
 class CoinApp extends PureComponent {
@@ -13,10 +14,12 @@ class CoinApp extends PureComponent {
   render() {
     return (
       <Provider store={this.store}>
-        <AppLayout>
-          <CoinOverview />
-          <TransactionListContainer />
-        </AppLayout>
+        <ModalProvider>
+          <AppLayout>
+            <CoinOverview />
+            <TransactionListContainer />
+          </AppLayout>
+        </ModalProvider>
       </Provider>
     );
   }
