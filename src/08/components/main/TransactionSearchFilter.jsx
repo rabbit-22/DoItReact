@@ -8,8 +8,6 @@ import Input from '../../../doit-ui/Input';
 import Form from '../../../doit-ui/Form';
 import Select, { Option } from '../../../doit-ui/Select';
 
-import Api from '../../Api';
-
 class TransactionSearchFilter extends PureComponent {
   constructor(props) {
     super(props);
@@ -17,9 +15,11 @@ class TransactionSearchFilter extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(params) {
-    const { setTransactionList } = this.props;
-
-    Api.get('/transactions', { params }).then(({ data }) => setTransactionList(data));
+    const { requestTransactionList } = this.props;
+    const cleanedParams = Object.entries(params)
+      .filter(([key, value]) => value !== '')
+      .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+    requestTransactionList(cleanedParams);
   }
   render() {
     return (
@@ -59,6 +59,6 @@ class TransactionSearchFilter extends PureComponent {
   }
 }
 
-TransactionSearchFilter.propTypes = { setTransactionList: PropTypes.func };
+TransactionSearchFilter.propTypes = { requestTransactionList: PropTypes.func };
 
 export default TransactionSearchFilter;
