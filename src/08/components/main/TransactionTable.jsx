@@ -5,6 +5,9 @@ import TableRow from '../../../doit-ui/TableRow';
 import TableCell from '../../../doit-ui/TableCell';
 import TableHead from '../../../doit-ui/TableHead';
 import TableBody from '../../../doit-ui/TableBody';
+import Text from '../../../doit-ui/Text';
+import Spacing from '../../../doit-ui/Spacing';
+import withLoading from '../../../05/withLoading';
 
 class TransactionTable extends PureComponent {
   render() {
@@ -34,6 +37,11 @@ class TransactionTable extends PureComponent {
   }
 }
 
+const LoadingMessage = (
+  <Spacing vertical={4} horizontal={2}>
+    <Text large>데이터를 불러들이고 있습니다.</Text>
+  </Spacing>
+);
 TransactionTable.propTypes = {
   transactions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -46,4 +54,4 @@ TransactionTable.propTypes = {
   ),
 };
 
-export default TransactionTable;
+export default withLoading(LoadingMessage)(TransactionTable);
