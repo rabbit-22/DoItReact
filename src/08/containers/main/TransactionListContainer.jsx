@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import TransactionList from '../../components/main/TransactionList';
-import { requestTransactionList } from '../../actions/transactionActions';
+import { requestTransactionList } from '../../actions/transactionPackActions';
 
 const mapStateToProps = (state) => {
   const { ids, entities, loading } = state.transactions;
