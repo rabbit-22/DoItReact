@@ -1,15 +1,13 @@
 import { connect } from 'react-redux';
 import TransactionPagination from '../../components/main/TransactionPagination';
 import { requestTransactionList } from '../../actions/transactionPackActions';
-
+import { loadingStateSelector } from '../../selectors/transactionSelectors';
 const mapStateToProps = (state) => {
-  const { pagination, loading, ids } = state.transactions;
-  const { number, size } = pagination;
+  const { pagination } = state.transactions;
+  const { number } = pagination;
   return {
-    searchParams: state.searchFilter.params,
     pageNumber: number || 1,
-    hasNext: ids.length === size,
-    loading,
+    loading: loadingStateSelector(state),
   };
 };
 

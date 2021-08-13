@@ -1,8 +1,8 @@
-import { hideMessage, showMessage, SHOW_NOTIFICATION } from "../actions/notificationActions";
+import { showMessage} from "../actions/notificationActions";
 import { KEY,LIFECYCLE } from "redux-pack";
 
 export default store => nextRunner => action => {
-    const {type,meta} = action;
+    const {meta} = action;
     if(meta && meta.notification){
         const {success, error} = meta.notification;
         if(success &&meta[KEY.LIFECYCLE]===LIFECYCLE.SUCCESS){
