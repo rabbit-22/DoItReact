@@ -23,7 +23,8 @@ class CoinApp extends PureComponent {
                 <Route path="/" exact render={() => <MainPage />} />
                 <Route
                   path="*"
-                  component={NotFound} // match 프로퍼티로 입력한 주소값 전달하기 위해 컴포넌트 프로퍼티 사용
+                  component={NotFound} //match 프로퍼티로 입력한 주소값 전달하기 위해 컴포넌트 프로퍼티 사용
+                  //render 프로퍼티 사용시 render={(match)=> <NotFound match={match} />}
                 />
               </Switch>
               <NotificationContainer />

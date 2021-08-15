@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 
 import Text from '../../doit-ui/Text';
 import Spacing from '../../doit-ui/Spacing';
