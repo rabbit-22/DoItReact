@@ -7,6 +7,7 @@ import Text from '../../../doit-ui/Text';
 import Input from '../../../doit-ui/Input';
 import Form from '../../../doit-ui/Form';
 import Select, { Option } from '../../../doit-ui/Select';
+import { withRouter } from 'react-router-dom';
 
 class TransactionSearchFilter extends PureComponent {
   constructor(props) {
@@ -15,16 +16,20 @@ class TransactionSearchFilter extends PureComponent {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleSubmit(params) {
-    const { requestTransactionList, setFilter } = this.props;
+    const { setFilter, history } = this.props;
     const cleanedParams = Object.entries(params)
       .filter(([key, value]) => value !== '')
       .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
-    requestTransactionList(cleanedParams);
-    setFilter(cleanedParams);
+    const querystring = Object.entries(params)
+      .filter((entries) => !!entries[1])
+      .map(([key, value]) => `${key}=${value}`) // ex) 'code=DOIT'
+      .join('&'); // ex) 'code=DOIT&price=100'
+    history.push(`/?${querystring}`);
   }
   render() {
+    const { initValues } = this.props;
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} initValues={initValues}>
         <Form.Consumer>
           {({ onChange, values }) => (
             <InlineList spacingBetween={2} verticalAlign="bottom">
@@ -63,4 +68,4 @@ TransactionSearchFilter.propTypes = { setFilter: PropTypes.func };
 
 TransactionSearchFilter.propTypes = { requestTransactionList: PropTypes.func };
 
-export default TransactionSearchFilter;
+export default withRouter(TransactionSearchFilter);

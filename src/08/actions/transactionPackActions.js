@@ -2,9 +2,9 @@ import createActions from "../../11/api-redux-pack/createActions";
 export const FETCH_TRANSACTION_LIST = 'transaction/FETCH_TRANSACTION_LIST';
 export const CREATE_TRANSACTION = 'transaction/CREATE_TRANSACTION';
 
-const {collection, create} = createActions('transactions');
+const {collection, create,reset} = createActions('transactions');
 const PAGE_SIZE=10;
-
+export const resetTransactionList = reset;
 export function createTransaction(data,onComplete){
     const meta = {
         onSuccess:onComplete,

@@ -3,4 +3,7 @@ import TransactionSearchFilter from '../../components/main/TransactionSearchFilt
 import { requestTransactionList } from '../../actions/transactionPackActions';
 import { setFilter } from '../../actions/searchFilterActions';
 
-export default connect(null, { requestTransactionList, setFilter })(TransactionSearchFilter);
+const mapStateToProps = (state) => ({
+  initValues: state.searchFilter.params, // 검색입력 항목 스토어 데이터 추가
+});
+export default connect(mapStateToProps)(TransactionSearchFilter);
